@@ -13,7 +13,7 @@
 6. Enjoy!
 
 ### Modification from Origin Nyx
-no module named '_curses' --> Use curses wrapper
-os.uname() --> platform.uname()
+1. no module named '_curses' --> Use curses wrapper
+2. os.uname() --> platform.uname()
  * need "import platform"
-os.getuid() --> Disable (Be Comment)
+3. os.getuid() --> Disable (Be Comment)
