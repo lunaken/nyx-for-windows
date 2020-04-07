@@ -1,0 +1,897 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+  <head>
+    <title>Nyx</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <noscript><link rel="stylesheet" type="text/css" href="styles_no_js.css"></noscript>
+
+    <!-- jQueryTools 1.2.6 (https://jquerytools.github.io/download/), copied July 24, 2017 -->
+    <script src="jquery.tools.min.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="header-body">
+        <span id="logo"></span>
+
+        <!-- less common nav options (bug tracker, contact, etc) -->
+
+        <div id="more">
+          <ul id="more-menu">
+            <li><a href="changelog/index.html">Changelog</a></li>
+            <li><a href="#configuration">Configuration</a></li>
+            <li><a href="https://github.com/torproject/nyx/issues/">Bug Tracker</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- general navigation -->
+
+        <div class="nav">
+          <ul class="tabs nav">
+            <li><a id="t1" href="#home_section">What Is It?</a></li>
+            <li><a id="t2" href="#faq_section">FAQ</a></li>
+            <li><a id="t3" href="#download_section">Download</a></li>
+            <li style="display: none"><a id="t4" href="#configuration_section">Configuration</a></li>
+            <li style="display: none"><a id="t5" href="#contact_section">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="home_section" class="page">
+      <div id="welcome" class="section"></div>
+      <a href="#welcome" class="section-title">Welcome to Nyx</a>
+
+      <p>Nyx is a command-line monitor for <a href="https://www.torproject.org/">Tor</a>. With this you can get detailed real-time information about your relay such as bandwidth usage, connections, logs, and much more.</p>
+
+      <p>Nyx's latest version is <b>2.1.0</b>, released January 12th, 2019.</p>
+
+      <div id="features" class="section"></div>
+      <a href="#features" class="section-title">What does Nyx provide?</a>
+
+      <div class="feature">
+        <a id="bandwidth"></a>
+        <a href="images/screenshots/front_page.png"><img src="images/features/bandwidth.png" alt="bandwidth"></a>
+        <span class="feature-arrow">&laquo;</span><a href="#bandwidth" class="feature-title">Bandwidth Graph</a>
+        <p>Bandwidth used by Tor. You can press 'i' to pick the graphing <b>interval</b>, or 's' to show other usage <b>statistics</b>.</p>
+      </div>
+
+      <div class="feature">
+        <a id="events"></a>
+        <a href="images/screenshots/front_page.png"><img src="images/features/events.png" alt="event log"></a>
+        <span class="feature-arrow">&laquo;</span><a href="#events" class="feature-title">Event Log</a>
+        <p>Tor logs a wealth of information about itself. We present it, colorized and deduplicated. Press 'e' to select what <b>events</b> are logged and 'f' to <b>filter</b> to just what you want.</p>
+      </div>
+
+      <div class="feature">
+        <a id="connections"></a>
+        <a href="images/screenshots/connections.png"><img src="images/features/connections.png" alt="connections"></a>
+        <span class="feature-arrow">&laquo;</span><a href="#connections" class="feature-title">Connections</a>
+        <p>Connection data similar to netstat or lsof, but correlated with Tor relay information to make it much richer. Press 'enter' for more <b>details</b>, 's' to <b>sort</b>, and 'd' to see raw <b>descriptor</b> data.</p>
+      </div>
+
+      <div class="feature">
+        <a id="config_editor"></a>
+        <a href="images/screenshots/config_editor.png"><img src="images/features/config_editor.png" alt="configuration editor"></a>
+        <span class="feature-arrow">&laquo;</span><a href="#config_editor" class="feature-title">Configuration Editor</a>
+        <p>Editor to change Tor's setting on the fly, with usage information from its manual. Press 'enter' to <b>change</b> Tor settings and 'w' to <b>write</b> your changes to disk.</p>
+      </div>
+
+      <div class="feature">
+        <a id="torrc"></a>
+        <a href="images/screenshots/torrc.png"><img src="images/features/torrc.png" alt="torrc"></a>
+        <span class="feature-arrow">&laquo;</span><a href="#torrc" class="feature-title">Torrc</a>
+        <p>Provides your torrc with line numbers and syntax highlighting. Comments can be <b>stripped</b> by pressing 's'.</p>
+      </div>
+
+      <div class="feature">
+        <a id="interpreter"></a>
+        <a href="images/screenshots/interpreter.png"><img src="images/features/interpreter.png" alt="interpreter"></a>
+        <span class="feature-arrow">&laquo;</span><a href="#interpreter" class="feature-title">Interpreter</a>
+        <p>Integration with <a href="https://stem.torproject.org/">Stem's</a> <a href="https://stem.torproject.org/tutorials/down_the_rabbit_hole.html">interpreter</a>, providing <a href="https://gitweb.torproject.org/torspec.git/tree/control-spec.txt">raw controller access</a>, irc-style commands like <b>/help</b>, tab completion, history scrollback, and a python prompt.</p>
+      </div>
+
+      <div class="feature">
+        <a id="and_more"></a>
+        <img src="images/features/menu.png" alt="menu">
+        <span class="feature-arrow">&laquo;</span><a href="#and_more" class="feature-title">... and more!</a>
+        <p>That's just the tip of the iceberg. All pages within Nyx provide <b>help</b> information when you press 'h' and <b>menu</b> in response to 'm'. So go explore!</p>
+      </div>
+    </div>
+
+    <div id="faq_section" class="page">
+      <div class="section"></div>
+      <a href="#faq" class="section-title">Fact &amp; Question</a>
+      <br><br>
+
+      <ul class="questions">
+        <li id="what_is_nyx">
+          <span>What is Nyx?</span>
+          <div class="answer">
+            <p>Nyx is a command-line application for monitoring real time <a href="https://www.torproject.org/">Tor</a> status information. This includes bandwidth usage, logs, connections, configuration, and more.</p>
+            <p>As a curses interface Nyx is particularly well suited for ssh connections, tty terminals, and command-line aficionados.</p>
+            <p>For a bit of its history see my <a href="HFM_INT_0001.mp3">2009 interview by Brenno Winter</a>.</p>
+          </div>
+        </li>
+
+        <li id="getting_started">
+          <span>How do I get started?</span>
+          <div class="answer">
+            <p>Getting started with Nyx is easy!</p>
+            <ol>
+              <li><a href="#download">Install Nyx.</a></li>
+              <li>
+                </p>Open a Tor ControlPort for Nyx to connect with.</p>
+                <p><a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a> provides this out of the box. Otherwise, add the following lines to your <a href="https://www.torproject.org/docs/faq.html.en#torrc">torrc</a> and restart tor...</p>
+                <pre>ControlPort 9051<br>CookieAuthentication 1</pre>
+                &nbsp;
+              </li>
+              <li>Run &quot;<b>nyx</b>&quot; on your commandline. <b>That's it!</b></li>
+            </ol>
+          </div>
+        </li>
+
+        <li id="why_is_it_called_nyx">
+          <span>Why is it called Nyx?</span>
+          <div class="answer">
+            <a class="nyx-img" href="http://fallenlights.net/"><img src="images/faq/shadowgirl.jpg" alt="greek goddess" title="Nyx by Shadowgirl, used with permission."></a>
+            <p style="min-height: 340px">Simple - because the <a href="https://en.wikipedia.org/wiki/Nyx">Greek goddess of night</a> is short and memorable. Terminal applications are handiest when they're brief and easy to type. Top, ssh, scp - anything longer is just begging to be aliased down.</p>
+          </div>
+        </li>
+
+        <li id="dependencies">
+          <span>Does Nyx have any dependencies?</span>
+          <div class="answer">
+            <p><b>Yes</b>, Nyx requires <a href="https://stem.torproject.org/">Stem 1.5.4 or later</a>.
+          </div>
+        </li>
+
+        <li id="python_requirement">
+          <span>What Python versions is Nyx compatible with?</span>
+          <div class="answer">
+            <p>Nyx works with <b>Python 2.7 and greater</b>, including the Python 3.x series.</p>
+          </div>
+        </li>
+
+        <li id="other_tor_uis">
+          <span>Are there any other user interfaces for Tor?</span>
+          <div class="answer">
+            <p>Yes, though sadly this space doesn't get much attention.</p>
+            <p>For years <a href="https://en.wikipedia.org/wiki/Vidalia_%28software%29">Vidalia</a> was the default interface of Tor until it was replaced by <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a> in 2013. Vidalia includes a launcher, settings editor, map, and more. <a href="https://sourceforge.net/projects/tork/">TorK</a> is similar, providing connection information as well but never reached the same level of prominence. Both interfaces are now unmaintained.</p>
+            <img class="vidalia-img" src="images/faq/vidalia.jpg" alt="vidalia">
+            <p>Smaller widgets include...</p>
+
+            <ul>
+              <li><a href="https://gitorious.org/syboa/syboa">Syboa</a> - General interface</li>
+              <li><a href="https://github.com/neelchauhan/OnionLauncher">OnionLauncher</a> - Tor launcher</li>
+              <li><a href="https://github.com/neelchauhan/TorNova">TorNova</a> - Tor launcher</li>
+              <li><a href="https://github.com/skyguy/onionview">OnionView</a> - Circuit information</li>
+              <li><a href="https://git-tails.immerda.ch/onioncircuits/">OnionCircuits</a> - Circuit information</li>
+              <li><a href="https://github.com/Yawning/or-applet">or-applet</a> - Circuit information</li>
+            </ul>
+
+            <p>If I missed any then please <a href="https://www.atagar.com/contact/">let me know</a>!</p>
+          </div>
+        </li>
+
+        <li id="no_apt_get">
+          <span>Why can't I install with apt-get?</span>
+          <div class="answer">
+            <p>Installing with Debian and Ubuntu might fail with...</p>
+            <pre>% sudo apt-get install nyx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package nyx</pre>
+            <br>
+            <p>If so, Nyx is not yet available in your distribution's repositories. Nyx is present in <a href="https://packages.debian.org/sid/nyx">Debian Sid</a> and <a href="https://launchpad.net/ubuntu/+source/nyx">Ubuntu 2.0.4 (Bionic)</a>, but it will take time before it's available elsewhere.</p>
+            <p>In the meantime if you see the above we suggest installing with '<b>sudo pip install nyx</b>' instead.</p>
+          </div>
+        </li>
+
+        <li id="report_bug">
+          <span>How can I report a bug?</span>
+          <div class="answer">
+            <p>Ran into a problem? Please simply inform us of it on our<a href="https://github.com/torproject/nyx/issues/">bug tracker</a>.</p>
+          </div>
+        </li>
+
+        <li id="license">
+          <span>What license is Nyx under?</span>
+          <div class="answer">
+            <p>Nyx is under the <a href="https://www.gnu.org/licenses/gpl">GPLv3</a>.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="faq-section"></div>
+      <a href="#usage" class="section-title">Usage</a>
+      <br><br>
+
+      <ul class="questions">
+        <li id="other_peoples_traffic">
+          <span>Will I see other people's traffic?</span>
+          <div class="answer">
+            <p><b>No</b>. Potential client and exit connections are scrubbed of sensitive information. Be aware that it's highly discouraged (and likely illegal) for relay operators to view other people's traffic, so please don't.</p>
+          </div>
+        </li>
+
+        <li id="sharing_information">
+          <span>Is it harmful to share information I see?</span>
+          <div class="answer">
+            <p><b>Not really</b>, but show some moderation. Screenshots of Nyx are unlikely to do any harm but try to avoid exposing data en mass.</p>
+          </div>
+        </li>
+
+        <li id="leaking">
+          <span>Can running Nyx leak data?</span>
+          <div class="answer">
+            <p><b>No</b>. As a passive listener Nyx retrieves everything it needs from your local system. Nothing goes over the network.</p>
+          </div>
+        </li>
+
+        <li id="missing_bandwidth_graph">
+          <span>Why can't I see the bandwidth graph?</span>
+          <div class="answer">
+            <p>Some terminals, such as screen sessions on Gentoo, apparently have a bug where highlighted space characters are not shown. Try running...</p>
+            <pre>export TERM="rxvt-unicode"</pre>
+          </div>
+        </li>
+
+        <li id="bits_or_bytes">
+          <span>Is bandwidth graphed in bits or bytes?</span>
+          <div class="answer">
+            <p><b>Bytes</b>. Most tools measure in bytes so for consistency we do the same. Unfortunately hosting providers advertise in bits to inflate their numbers ("5 Mbit connection"). If graphs show just one eighth of what you expect this is why.</p>
+            <p>To graph in bits rather than bytes add the following to your <a href="#configuration">nyxrc</a>...</p>
+            <pre>show_bits true</pre>
+          </div>
+        </li>
+
+        <li id="broken_borders">
+          <span>Why are there borders like 'mwqqqqqqqqj'?</span>
+          <div class="answer">
+            <a class="acs-img" href="images/screenshots/acs_failure.png"><img src="images/faq/acs_failure.png" alt="acs display failure"></a>
+            <p>When alternate character support (ACS) <a href="http://invisible-island.net/ncurses/ncurses.faq.html#no_line_drawing">is unavailable</a> borders become characters like the picture above. This is a terminal bug.</p>
+            <p>Unfortunately there doesn't seem to be a way for Nyx to automatically detect this. However, when it happens this <b>can</b> be easily corrected. Simply run <i>reset</i>. To tell Nyx not to use ACS borders simply add the following to your <a href="#configuration">nyxrc</a>...</p>
+            <pre>acs_support false</pre>
+          </div>
+        </li>
+
+        <li id="no_connections">
+          <span>Why can't I see Tor's connections?</span>
+          <div class="answer">
+            <p>Nyx can provide you with information about <a href="images/features/connections.png">tor's active connections</a>. This information is retrieved from your system's <b>/proc</b> content or tools such as <i>netstat</i> and <i>lsof</i>.</p>
+
+            <p>Unfortunately Tor inadvertently breaks the tools Nyx falls back to through a feature called <a href="https://www.torproject.org/docs/tor-manual.html.en#DisableDebuggerAttachment"><b>DisableDebuggerAttachment</b></a>, which makes tor's process memory only readable by root.</p>
+
+            <p>This leaves you with three options...</p>
+
+            <ol>
+              <li><p>Use Nyx without connection data. <b>Nyx does not require connection information</b>, and aside a sparse connection list you probably won't even notice.</p></li>
+              <li><p>Run Nyx as root. <b>This is not recommended.</b></p></li>
+              <li><p>Turn off <a href="https://www.torproject.org/docs/tor-manual.html.en#DisableDebuggerAttachment"><b>DisableDebuggerAttachment</b></a> by adding the following to your <a href="https://www.torproject.org/docs/faq.html.en#torrc">torrc</a> and restarting tor...</p>
+                <pre>DisableDebuggerAttachment 0</pre>
+              </li>
+            </ol>
+
+            <p>Don't fret overly much about this decision. Nothing at play here is important - connection data is unimportant <b>and</b> DisableDebuggerAttachment's <a href="https://trac.torproject.org/projects/tor/ticket/3313">security benefit</a> is insignificant. Either decision is fine.</p>
+          </div>
+        </li>
+
+        <li id="missing_relay_details">
+          <span>Why are connections missing relay details?</span>
+          <div class="answer">
+            <p>Nyx presents your <a href="images/features/connections.png">active connections</a> correlated with tor consensus data. This means that in addition to the IP/port we also provide Tor-specific information such as your connection's relay fingerprint, nickname, contact address, and much more.</p>
+            <p>However, sometimes this extra information is missing <b>and that's fine</b>. Relays publish information about themselves on an hourly basis in documents called <a href="https://stem.torproject.org/tutorials/mirror_mirror_on_the_wall.html#what-is-a-descriptor">descriptors</a>. Tor downloads only the descriptors it needs to run, so Tor may not have information about all the relays you're connecting to. And that's ok.</p>
+            <p>However, if you need up-to-date information you can add the following to your torrc...</p>
+
+            <pre># download new descriptors even if our cache is still valid
+
+FetchDirInfoEarly 1
+FetchDirInfoExtraEarly 1
+FetchUselessDescriptors 1</pre>
+          </div>
+        </li>
+      </ul>
+
+      <div class="faq-section"></div>
+      <a href="#development" class="section-title">Development</a>
+      <br><br>
+
+      <ul class="questions">
+        <li id="getting_involved">
+          <span>How can I get involved?</span>
+          <div class="answer">
+            <p>The best way of getting involved with any project is to jump right in! In particular look for the 'easy' keyword on our <a href="https://github.com/torproject/nyx/issues/">bug tracker</a> for a handy spot to start.</p>
+            <p>Got questions? I'm <b>atagar</b> on <a href="http://www.oftc.net/">oftc</a> and available <a href="https://www.atagar.com/contact/">via email</a>. To get started...</p>
+
+            <ol>
+              <li>Clone our <a href="http://git-scm.com/">git</a> repository...<pre>git clone https://git.torproject.org/nyx.git</pre><br></li>
+              <li>Install our test dependencies<pre>sudo pip install mock pyflakes pycodestyle</pre><br></li>
+              <li>Install the development version of <a href="https://stem.torproject.org/">Stem</a>...<pre>git clone https://git.torproject.org/stem.git
+cd stem
+sudo python setup.py install</pre><br></li>
+              <li>Find a <a href="https://github.com/torproject/nyx/issues/">bug or feature</a> that sounds fun and dig in!</li>
+            </ol>
+          </div>
+        </li>
+
+        <li id="running_tests">
+          <span>How do I run the tests?</span>
+          <div class="answer">
+            <p>Nyx has unit tests that exercise our curses functionality. When you run the tests you'll probably notice your console flicker as these tests are exercised. This is normal. Testing also runs <a href="https://launchpad.net/pyflakes">pyflakes</a> and <a href="http://pycodestyle.readthedocs.org/en/latest/">pycodestyle</a> in the background.<p>
+            <p>Running our tests is simple...</p>
+            <pre>% run_tests.py</pre>
+          </div>
+        </li>
+
+        <li id="pull_requests">
+          <span>How do I file a pull request?</span>
+          <div class="answer">
+            <p>Got something to send my way? It's easy...</p>
+            <ol>
+              <li>Make a publicly accessible repository for me to pull from. If you don't already have one <a href="https://github.com/">GitHub</a> is great for this.<br><br></li>
+              <li>File a <a href="https://trac.torproject.org/projects/tor/newticket">trac ticket</a>. Only fields you'll need are...<br><br>
+                <ul>
+                  <li><b>Summary</b>: brief description of your change</li>
+                  <li><b>Description</b>: description of your change and a link to your repository for me to pull from</li>
+                  <li><b>Type</b>: 'defect' if this is a bug fix and 'enhancement' otherwise</li>
+                  <li><b>Component</b>: Core Tor &#8594; Nyx</li>
+                </ul>
+                <br>
+              </li>
+              <li>I'll review your change and give suggestions. When we're both happy with it I'll push your change to the official repository.</li>
+            </ol>
+          </div>
+        </li>
+
+        <li id="patch_copyright">
+          <span>What is the copyright for patches?</span>
+          <div class="answer">
+            <p>Nyx is under the <a href="https://www.gnu.org/licenses/gpl">GPLv3</a> which is a fine license, but poses a bit of a problem for sharing code with our other projects (which are mostly BSD). To share code without needing to hunt down prior contributors we need Tor to have the copyright for the whole Nyx codebase. Presently the copyright of Nyx is jointly held by its main author (<a href="https://www.atagar.com/">Damian</a>) and the <a href="https://www.torproject.org/">Tor Project</a>.
+            <p>If you submit a substantial patch I'll ask if you're fine with it being in the public domain. This would mean that there are no legal restrictions for using your contribution, and hence won't pose a problem if we reuse Nyx code in other projects.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="download_section" class="page">
+      <div class="section"></div>
+      <a href="#download" class="section-title">Download</a>
+
+      <p>Nyx is available Mac OSX, Linux, and BSD but <a href="#windows">not Windows</a>. Find your platform below to get started. For what's changed see our <a href="changelog/index.html">change log</a>.</p>
+
+      <br>
+
+      <div class="platform">
+        <a href="https://pypi.python.org/pypi/nyx/" id="pypi"><img src="images/download/pypi.png" alt="PyPI"></a>
+        <a href="https://pypi.python.org/pypi/nyx/" class="platform-title">Python Package Index</a>
+        <p>Signed releases and instructions for both Python 2.x and 3.x. You can easily install from its <a href="https://pypi.python.org/packages/42/37/85890dae5680f36f5b1c964ad41674ebb8d1186383fbca58f82e76de734c/nyx-2.0.4.tar.gz">tarball</a> (<a href="https://pypi.python.org/packages/42/37/85890dae5680f36f5b1c964ad41674ebb8d1186383fbca58f82e76de734c/nyx-2.0.4.tar.gz.asc">sig</a>), or with <b>pip</b>...</p>
+        <pre>
+% sudo easy_install pip
+% sudo pip install nyx
+</pre>
+      </div>
+
+      <div class="platform">
+        <a href="http://brewformulas.org/Nyx" id="osx"><img src="images/download/osx.png" alt="OSX"></a>
+        <a href="http://brewformulas.org/Nyx"><span class="platform-title">Mac OSX</span></a>
+        <p>On OSX you can easily install with both the <b>pip</b> command above and <b>brew</b>...</p>
+        <pre>% brew install nyx</pre>
+      </div>
+
+      <div class="platform">
+        <a href="http://packages.debian.org/sid/nyx" id="debian"><img src="images/download/debian.png" alt="Debian"></a>
+        <a href="http://packages.debian.org/sid/nyx" class="platform-title">Debian</a>
+        <p>Package maintained by Dererk for Debian. Use <a class="faq_no_apt_get" href="#no_apt_get">sudo pip install nyx</a> if this doesn't work.</p>
+        <pre>% sudo apt-get install nyx</pre>
+      </div>
+
+      <div class="platform">
+        <a href="https://launchpad.net/ubuntu/+source/nyx" id="ubuntu"><img src="images/download/ubuntu.png" alt="Ubuntu"></a>
+        <a href="https://launchpad.net/ubuntu/+source/nyx" class="platform-title">Ubuntu</a>
+        <p>Package derived from Debian for Ubuntu. Use <a class="faq_no_apt_get" href="#no_apt_get">sudo pip install nyx</a> if this doesn't work.</p>
+        <pre>% sudo apt-get install nyx</pre>
+      </div>
+
+      <div class="platform">
+        <a href="https://apps.fedoraproject.org/packages/nyx" id="fedora"><img src="images/download/fedora.png" alt="Fedora"></a>
+        <a href="https://apps.fedoraproject.org/packages/nyx" class="platform-title">Fedora</a>
+        <p>Package maintained by Juan for Fedora using <b>dnf</b> or <b>yum</b>.</p>
+        <pre>% sudo dnf install nyx</pre>
+      </div>
+
+      <div class="platform">
+        <a href="https://packages.gentoo.org/packages/net-misc/nyx" id="gentoo"><img src="images/download/gentoo.png" alt="Gentoo"></a>
+        <a href="https://packages.gentoo.org/packages/net-misc/nyx" class="platform-title">Gentoo</a>
+        <p>Package by Anthony Basile for Gentoo.</p>
+        <pre>% sudo emerge nyx</pre>
+      </div>
+
+      <div class="platform">
+        <a href="https://www.archlinux.org/packages/community/any/nyx/" id="archlinux"><img src="images/download/archlinux.png" alt="Arch Linux"></a>
+        <a href="https://www.archlinux.org/packages/community/any/nyx/" class="platform-title">Arch Linux</a>
+        <p>Package by Alex for Arch Linux...</p>
+        <pre>
+% pacman -S nyx
+</pre>
+      </div>
+
+      <div class="platform">
+        <a href="https://slackbuilds.org/repository/14.2/python/nyx/" id="slackware"><img src="images/download/slackware.png" alt="Slackware"></a>
+        <a href="https://slackbuilds.org/repository/14.2/python/nyx/" class="platform-title">Slackware</a>
+        <p>Package maintained by Markus for <a href="http://slackbuilds.org/howto/">Slackware</a>.</p>
+      </div>
+
+      <div class="platform">
+        <a href="https://www.freshports.org/security/nyx/" id="freebsd"><img src="images/download/freebsd.png" alt="FreeBSD"></a>
+        <a href="https://www.freshports.org/security/nyx/" class="platform-title">FreeBSD</a>
+        <p>Port maintained by Carlo for <a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/ports.html">FreeBSD</a>.</p>
+        <pre>% pkg install security/nyx</pre>
+      </div>
+
+      <div class="platform">
+        <a href="http://openports.se/net/nyx" id="openbsd"><img src="images/download/openbsd.png" alt="OpenBSD"></a>
+        <a href="http://openports.se/net/nyx" class="platform-title">OpenBSD</a>
+        <p>Port maintained by pascal for OpenBSD.</p>
+        <pre>% pkg_add nyx</pre>
+      </div>
+
+      <div class="platform">
+        <a href="http://pkgsrc.se/net/nyx" id="netbsd"><img src="images/download/netbsd.png" alt="NetBSD"></a>
+        <a href="http://pkgsrc.se/net/nyx" class="platform-title">NetBSD</a>
+        <p>Port maintained by Riastradh for NetBSD.</p>
+        <pre>% pkg_add nyx</pre>
+      </div>
+
+      <div class="platform">
+        <a href="https://gitweb.torproject.org/nyx.git" id="git"><img src="images/download/git.png" alt="Git"></a>
+        <a href="https://gitweb.torproject.org/nyx.git" class="platform-title">Source Repository</a>
+        <p>For those that want to live on the bleeding edge or contribute, Nyx's git repository can be fetched with...</p>
+        <pre>% git clone https://git.torproject.org/nyx.git</pre>
+      </div>
+    </div>
+
+    <div id="configuration_section" class="page">
+      <div class="section"></div>
+      <a href="#configuration" class="section-title">Configuration</a>
+
+      <p>Like many terminal applications Nyx can be customized through a configuration file. By default <b>~/.nyx/nyxrc</b>, though you can specify one with <b>nyx --config /path/to/nyxrc</b>.</p>
+      <p>Configurations are a simple series of key/value pairs. <a href="https://stem.torproject.org/api/util/conf.html">See Stem</a> for details. For example...</p>
+
+      <pre id="nyxrc-example">
+acs_support false
+color_override blue  # make our UI predominately blue
+logged_events BW, NOTICE, WARN, ERR
+      </pre>
+
+      <h2 class="nyxrc-section">General Options</h2>
+
+      <table class="nyxrc-options">
+        <tr>
+          <td width="125"><b>Option</b></td>
+          <td width="100"><b>Default</b></td>
+          <td><b>Description</b></td>
+        </tr>
+
+        <tr>
+          <td><b>data_directory</b></td>
+          <td><b>~/.nyx</b></td>
+          <td>Location data is cached to. To avoid caching anything to disk specify '<b>data_directory disabled</b>'.</td>
+        </tr>
+
+        <tr>
+          <td><b>password</b></td>
+          <td></td>
+          <td><a href="https://stem.torproject.org/faq.html#i-m-using-password-authentication">Tor controller password</a>. If unset you will be prompted for a password when one is required to authenticate.<br><br><b>Use of this is discouraged.</b> To authenticate with tor non-interactively please use <a href="https://stem.torproject.org/faq.html#i-m-using-cookie-authentication">cookie authentication</a> instead.</td>
+        </tr>
+
+        <tr>
+          <td><b>tor_chroot</b></td>
+          <td></td>
+          <td>Chroot jail tor resides within. Most common on FreeBSD, if tor is running within a jail then use this to specify the path prefix we should use when looking for tor files on disk.</td>
+        </tr>
+
+        <tr>
+          <td><b>show_bits</b></td>
+          <td><b>false</b></td>
+          <td>Shows bandwidth measurements in bits if <b>true</b>, and bytes if <b>false</b>.</td>
+        </tr>
+
+        <tr>
+          <td><b>confirm_quit</b></td>
+          <td><b>true</b></td>
+          <td>Asks the user to confirm when pressing 'q' to quit if <b>true</b>.</td>
+        </tr>
+
+        <tr>
+          <td><b>color_interface</b></td>
+          <td><b>true</b></td>
+          <td>Uses colors in Nyx's interface if <b>true</b>. Monochrome is <b>false</b>.</td>
+        </tr>
+
+        <tr>
+          <td><b>color_override</b></td>
+          <td></td>
+          <td>Replaces most color with this hue. Options available are <b>red</b>, <b>green</b>, <b>blue</b>, <b>cyan</b>, <b>magenta</b>, <b>yellow</b>, and <b>black</b>.</td>
+        </tr>
+
+        <tr>
+          <td><b>unicode_support</b></td>
+          <td><b>true</b></td>
+          <td>Render text as unicode if <b>true</b>. Only ASCII is rendered if <b>false</b>.</td>
+        </tr>
+
+        <tr>
+          <td><b>acs_support</b></td>
+          <td><b>true</b></td>
+          <td>Uses ACS (alternate character set) for nice borders if <b>true</b>. Borders are replaced with ASCII pipe characters if <b>false</b>.</td>
+        </tr>
+      </table>
+
+      <h2 class="nyxrc-section">Update Rates</h2>
+
+      <table class="nyxrc-options">
+        <tr>
+          <td width="125"><b>Option</b></td>
+          <td width="100"><b>Default</b></td>
+          <td><b>Description</b></td>
+        </tr>
+
+        <tr>
+          <td><b>redraw_rate</b></td>
+          <td><b>5</b></td>
+          <td>Seconds to await user input before redrawing.</td>
+        </tr>
+
+        <tr>
+          <td><b>connection_rate</b></td>
+          <td><b>5</b></td>
+          <td>Seconds between querying connections.</td>
+        </tr>
+
+        <tr>
+          <td><b>resource_rate</b></td>
+          <td><b>5</b></td>
+          <td>Seconds between querying process resource usage.</td>
+        </tr>
+
+        <tr>
+          <td><b>port_usage_rate</b></td>
+          <td><b>5</b></td>
+          <td>Seconds between querying processes using ports.</td>
+        </tr>
+      </table>
+
+      <h2 class="nyxrc-section">Logging</h2>
+
+      <table class="nyxrc-options">
+        <tr>
+          <td width="125"><b>Option</b></td>
+          <td width="100"><b>Default</b></td>
+          <td><b>Description</b></td>
+        </tr>
+
+        <tr>
+          <td><b>logged_events</b></td>
+          <td><b>NOTICE,<br>WARN,<br>ERR,<br>NYX_NOTICE,<br>NYX_WARNING,<br>NYX_ERROR</b></td>
+          <td>Comma separated list of events to be initially logged, similar to the <b>--log</b> argument.</td>
+        </tr>
+
+        <tr>
+          <td><b>deduplicate_log</b></td>
+          <td><b>true</b></td>
+          <td>Hides duplicate log messages.</td>
+        </tr>
+
+        <tr>
+          <td><b>prepopulate_log</b></td>
+          <td><b>true</b></td>
+          <td>Populates with events that occure before we started.</td>
+        </tr>
+
+        <tr>
+          <td><b>logging_filter</b></td>
+          <td></td>
+          <td>Regex filter for log messages that are shown.</td>
+        </tr>
+
+        <tr>
+          <td><b>write_logs_to</b></td>
+          <td></td>
+          <td>Writes logs that occure as we run to this path.</td>
+        </tr>
+
+        <tr>
+          <td><b>max_log_size</b></td>
+          <td><b>1000</b></td>
+          <td>Maximum number of log messages.</td>
+        </tr>
+      </table>
+
+      <h2 class="nyxrc-section">Graphing</h2>
+
+      <table class="nyxrc-options">
+        <tr>
+          <td width="125"><b>Option</b></td>
+          <td width="100"><b>Default</b></td>
+          <td><b>Description</b></td>
+        </tr>
+
+        <tr>
+          <td><b>graph_stat</b></td>
+          <td><b>bandwidth</b></td>
+          <td>Statistic to be graphed. Options are...
+            <ul>
+              <li><b>none</b> - hide the graph</li>
+              <li><b>bandwidth</b> - downloaded/uploaded</li>
+              <li><b>connections</b> - inbound/outbound connections</li>
+              <li><b>resources</b> - cpu/memory usage</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td><b>graph_interval</b></td>
+          <td><b>each second</b></td>
+          <td>Graph sampling interval. Options are...
+            <ul>
+              <li><b>each second</b></li>
+              <li><b>5 seconds</b></li>
+              <li><b>30 seconds</b></li>
+              <li><b>minutely</b></li>
+              <li><b>15 minute</b></li>
+              <li><b>30 minute</b></li>
+              <li><b>hourly</b></li>
+              <li><b>daily</b></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td><b>graph_bound</b></td>
+          <td><b>max_local</b></td>
+          <td>Bounding for the graph min and max. Options are...
+            <ul>
+              <li><b>global_max</b> - global maximum</li>
+              <li><b>local_max</b> - local maximum</li>
+              <li><b>tight</b> - local maximum/minimum</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td><b>graph_height</b></td>
+          <td><b>7</b></td>
+          <td>Height of the graph.</td>
+        </tr>
+
+        <tr>
+          <td><b>max_graph_width</b></td>
+          <td><b>300</b></td>
+          <td>Maximum number of samplings.</td>
+        </td>
+      </table>
+
+      <h2 class="nyxrc-section">Tor Configuration</h2>
+
+      <table class="nyxrc-options">
+        <tr>
+          <td width="125"><b>Option</b></td>
+          <td width="100"><b>Default</b></td>
+          <td><b>Description</b></td>
+        </tr>
+
+        <tr>
+          <td><b>config_order</b></td>
+          <td><b>MAN_PAGE_ENTRY,<br>NAME,<br>IS_SET</b></td>
+          <td>Order for tor config options. Options are...
+            <ul>
+              <li><b>NAME</b></li>
+              <li><b>VALUE</b></li>
+              <li><b>VALUE_TYPE</b></li>
+              <li><b>CATEGORY</b></li>
+              <li><b>USAGE</b></li>
+              <li><b>SUMMARY</b></li>
+              <li><b>DESCRIPTION</b></li>
+              <li><b>MAN_PAGE_ENTRY</b></li>
+              <li><b>IS_SET</b></li>
+            </li>
+          </td>
+        </tr>
+
+        <tr>
+          <td><b>show_private_options</b></td>
+          <td><b>false</b></td>
+          <td>Shows configurations with a '__option' prefix.</td>
+        </tr>
+
+        <tr>
+          <td><b>show_virtual_options</b></td>
+          <td><b>false</b></td>
+          <td>Shows unsettable tor configurations.</td>
+        </tr>
+      </table>
+
+      <h2 class="nyxrc-section">Connections</h2>
+
+      <table class="nyxrc-options">
+        <tr>
+          <td width="125"><b>Option</b></td>
+          <td width="100"><b>Default</b></td>
+          <td><b>Description</b></td>
+        </tr>
+
+        <tr>
+          <td><b>connection_order</b></td>
+          <td><b>CATEGORY,<br>IP_ADDRESS,<br>UPTIME</b></td>
+          <td>Order for connections. Options are...
+            <ul>
+              <li><b>CATEGORY</b></li>
+              <li><b>UPTIME</b></li>
+              <li><b>IP_ADDRESS</b></li>
+              <li><b>PORT</b></li>
+              <li><b>FINGERPRINT</b></li>
+              <li><b>NICKNAME</b></li>
+              <li><b>COUNTRY</b></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td><b>resolve_processes</b></td>
+          <td><b>true</b></td>
+          <td>Shows processes for SOCKS and CONTROL connections.</td>
+        </tr>
+
+        <tr>
+          <td><b>show_addresses</b></td>
+          <td><b>true</b></td>
+          <td>Shows addresses of connections.</td>
+        </tr>
+      </table>
+
+      <h2 class="nyxrc-section">Component Visibility</h2>
+
+      <table class="nyxrc-options">
+        <tr>
+          <td width="125"><b>Option</b></td>
+          <td width="100"><b>Default</b></td>
+          <td><b>Description</b></td>
+        </tr>
+
+        <tr>
+          <td><b>show_graph</b></td>
+          <td><b>true</b></td>
+          <td>Shows the graph.</td>
+        </tr>
+
+        <tr>
+          <td><b>show_accounting</b></td>
+          <td><b>true</b></td>
+          <td>Shows accounting stats if AccountingMax is set.</td>
+        </tr>
+
+        <tr>
+          <td><b>show_log</b></td>
+          <td><b>true</b></td>
+          <td>Shows the event log.</td>
+        </tr>
+
+        <tr>
+          <td><b>show_connections</b></td>
+          <td><b>true</b></td>
+          <td>Shows connection information.</td>
+        </tr>
+
+        <tr>
+          <td><b>show_config</b></td>
+          <td><b>true</b></td>
+          <td>Shows tor's configuration.</td>
+        </tr>
+
+        <tr>
+          <td><b>show_torrc</b></td>
+          <td><b>true</b></td>
+          <td>Shows the torrc.</td>
+        </tr>
+
+        <tr>
+          <td><b>show_interpreter</b></td>
+          <td><b>true</b></td>
+          <td>Shows the control interpreter.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="contact_section" class="page">
+      <div class="section"></div>
+      <a href="#contact" class="section-title">Contact</a>
+
+      <table id="contact">
+        <tr>
+          <td id="email-contact"><a href="https://lists.torproject.org/cgi-bin/mailman/listinfo/tor-relays"><img src="images/email.png" alt="irc"></a></td>
+          <td class="contact-description">Relay tips? System administration question? <a href="https://lists.torproject.org/cgi-bin/mailman/listinfo/tor-relays">tor-relays@</a> is a list of relay operators for relay operators. You can also contact <a href="https://www.atagar.com/contact/">Nyx's author</a>.</td>
+        </tr>
+
+        <tr>
+          <td id="irc-contact"><a href="https://www.torproject.org/about/contact.html.en#irc"><img src="images/irc.png" alt="irc"></a></td>
+          <td class="contact-description">Want real-time help? Give OFTC's <a href="https://www.torproject.org/about/contact.html.en#irc">#tor channel</a> a try.</td>
+        </tr>
+
+        <tr>
+          <td id="bugtracker-contact"><a href="https://github.com/torproject/nyx/issues/"><img src="images/bugtracker.png" alt="bugtracker"></a></td>
+          <td class="contact-description">Running into a bug? To report technical problems drop us a line on our <a href="https://github.com/torproject/nyx/issues/">bug tracker</a>.</td>
+        </tr>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+    $(function() {
+      $(".tabs").tabs(".page", { history: true });
+
+      // when javascript is enabled change nav anchors so they're both shorter
+      // and don't move focus
+
+      document.getElementById("t1").href = "#home";
+      document.getElementById("t2").href = "#faq";
+      document.getElementById("t3").href = "#download";
+      document.getElementById("t4").href = "#configuration";
+      document.getElementById("t5").href = "#contact";
+
+      // show/hide for FAQ questions
+
+      var toggleFaq = function(answer) {
+        if (answer.is('.open')) {
+          answer.animate({'height': '0'}, 100);
+          answer.removeClass('open');
+        } else {
+          var newHeight = 0;
+
+          answer.children().each(function () {
+            if (["nyx-img", "vidalia-img"].indexOf(this.className) == -1) {
+              newHeight += $(this).outerHeight(true);
+            }
+          });
+
+          answer.animate({'height': newHeight}, 100);
+          answer.addClass('open');
+          history.replaceState(undefined, undefined, "#" + answer.parent().attr('id'));
+         }
+      }
+
+      $('.questions > li > span').click(function() {
+        toggleFaq($(this).parent().find('.answer'));
+      });
+
+      $('.faq_no_apt_get').click(function() {
+        $(".tabs").data("tabs").click("faq");
+        toggleFaq($('#no_apt_get > .answer'));
+        document.getElementById('no_apt_get').scrollIntoView();
+      });
+
+      // when provided an anchor select the tab it resides within
+
+      var anchor = window.location.hash;
+
+      if (anchor) {
+        $(".page").each(function () {
+          if ($(this).find(anchor).length) {
+            $(".tabs").data("tabs").click(this.id.split("_section")[0]);
+
+            if (this.id == "faq_section" && anchor != "#faq") {
+              toggleFaq($(anchor + " > .answer"));
+            }
+
+            document.getElementById(anchor.substr(1)).scrollIntoView();
+          }
+        });
+      }
+    });
+    </script>
+  </body>
+</html>

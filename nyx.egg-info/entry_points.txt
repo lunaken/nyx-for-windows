@@ -1,0 +1,3 @@
+[console_scripts]
+nyx = nyx.__init__:main
+
