@@ -2,7 +2,7 @@
 ## Nyx (Tor Command-line Monitor) for Windows
 ### Installation
 * Test Environment : Windowns 10 Pro, Python 3.8.1 64-bit
-1. Install stem (Dependency Package)
+1. Install wheel & stem (Dependency Package)
 2. Install curses wrapper
     * Download curses https://download.lfd.uci.edu/pythonlibs/s2jqpv5t/curses-2.2.1+utf8-cp38-cp38-win_amd64.whl
     * Find other versions : https://www.lfd.uci.edu/~gohlke/pythonlibs/#curses
