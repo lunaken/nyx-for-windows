@@ -12,7 +12,7 @@
 5. python -m setup.py install
 6. Enjoy!
 
-### Modification from Origin Nyx
+### Modified from Origin Nyx
 1. no module named '_curses' --> Use curses wrapper
 2. os.uname() --> platform.uname()
    * need "import platform"
